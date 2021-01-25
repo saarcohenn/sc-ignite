@@ -87,7 +87,7 @@ const GameDetails = ({ pathId }) => {
               </Info>
             </Stats>
             <Media>
-              <img
+              <motion.img
                 layoutId={`image ${pathId}`}
                 src={smallImage(game.background_image, 1280)}
                 alt={game.background_image}
@@ -120,6 +120,7 @@ const CardShadow = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
 
   &::-webkit-scrollbar {
     width: 0.5rem;
@@ -138,9 +139,9 @@ const Details = styled(motion.div)`
   padding: 2rem 5rem;
   background: white;
   position: absolute;
+  cursor: auto;
   left: 10%;
   color: black;
-  z-index: 10;
   img {
     width: 100%;
   }

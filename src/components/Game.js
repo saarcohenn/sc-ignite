@@ -11,6 +11,7 @@ import { smallImage } from "../utils";
 
 const Game = ({ name, released, image, id }) => {
   const dispatch = useDispatch();
+  const stringPathId = id.toString();
 
   // Load Details Handler
   const loadDetailsHandler = () => {
@@ -19,11 +20,15 @@ const Game = ({ name, released, image, id }) => {
   };
 
   return (
-    <StyledGame onClick={loadDetailsHandler}>
+    <StyledGame layoutId={stringPathId} onClick={loadDetailsHandler}>
       <Link to={`/game/${id}`}>
-        <h3>{name}</h3>
+        <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
         <p>{released}</p>
-        <img src={smallImage(image, 640)} alt={name} />
+        <motion.img
+          layoutId={`image ${stringPathId}`}
+          src={smallImage(image, 640)}
+          alt={name}
+        />
       </Link>
     </StyledGame>
   );
